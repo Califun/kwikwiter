@@ -1,0 +1,27 @@
+{% extends "public/base.html" %}
+
+{% load staticfiles %}
+
+
+{% block title %}Kuikuiter - Landing{% endblock %}
+
+{% block header_css %}
+<link rel="stylesheet" type="text/x-scss" href="{% static 'connection/css/style.scss' %}" />
+{% endblock %}
+
+{% block header_js %}
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="login_page">
+		<form class="login_form">
+			<div class="title">CONNEXION</div>
+			Email: <input type="text" />
+			Mdp: <input type="password" />
+			<input type="submit" />
+		</form>
+	</div>
+
+{% endblock %}

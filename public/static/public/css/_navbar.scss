@@ -1,0 +1,26 @@
+nav
+{
+	border-bottom: 1px solid #CCCCCC;
+
+	height: 60px;
+
+	background-color: white;
+
+	.logo
+	{
+		width: 47px;
+		height: 49px;
+	}
+}
+
+.visitor_navbar
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logged_navbar
+{
+
+}

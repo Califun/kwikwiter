@@ -1,0 +1,32 @@
+/**
+ **		Style variables
+ */
+/**
+ **		Mixins
+ */
+/**
+ **		Global rules
+ */
+/* line 4, public/static/public/css/_global.scss */
+body {
+  margin: 0;
+  background-color: #e6ecf0; }
+
+/**
+ **		Import components
+ */
+/* line 1, public/static/public/css/_navbar.scss */
+nav {
+  border-bottom: 1px solid #CCCCCC;
+  height: 60px;
+  background-color: white; }
+  /* line 9, public/static/public/css/_navbar.scss */
+  nav .logo {
+    width: 47px;
+    height: 49px; }
+
+/* line 16, public/static/public/css/_navbar.scss */
+.visitor_navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center; }

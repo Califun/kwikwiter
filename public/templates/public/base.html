@@ -1,0 +1,51 @@
+{% load staticfiles %}
+{% load compress %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>{% block title %}Kuikuiter{% endblock %}</title>
+		<meta name="description" content="Kuikuiter is the best website on earth!">
+		<meta name="author" content="Remy Alves">
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<meta name="theme-color" content="#3B94D9">
+
+		<link rel="shortcut icon" href="{% static 'public/img/favicon.ico' %}"/>
+		<link rel="icon" href="{% static 'public/img/favicon.ico' %}"/>
+
+		{% compress css %}
+
+		<link rel="stylesheet" type="text/x-scss" href="{% static "public/font-awesome/css/font-awesome.scss" %}" />
+		<link rel="stylesheet" type="text/x-scss" href="{% static "public/css/base.scss" %}" />
+
+		{% block header_css %}{% endblock %}
+		{% endcompress %}
+
+		{% compress js %}
+
+		<script type="text/javascript" src="{% static 'public/lib/jquery-3.3.1.js' %}"></script>
+
+		{% block header_js %}{% endblock %}
+		{% endcompress %}
+
+	</head>
+
+	<body>
+		{% if user.is_authenticated %}
+		{% include "public/navbar/logged_navbar.html" %}
+		{% else %}
+		{% include "public/navbar/visitor_navbar.html" %}
+		{% endif %}
+
+		{% block content %}{% endblock %}
+	</body>
+</html>

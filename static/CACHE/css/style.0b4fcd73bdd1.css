@@ -1,0 +1,10 @@
+/* line 3, connection/static/connection/css/style.scss */
+.login_page .login_form {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 200px;
+  width: 200px;
+  background-color: white; }

@@ -27,3 +27,70 @@
 @import 'usefull';
 @import 'components';
 @import 'navbar';
+
+
+.message_panel
+{
+	display: flex;
+
+	min-height: 48px;
+	transition: opacity .2s;
+
+	padding-right: 16px;
+	padding-left: 16px;
+
+	color: white;
+
+	&.success {background-color: #39A92F;}
+
+	&.info {background-color: #C4C4C4;}
+
+	&.warning {background-color: #FFC700;}
+
+	&.error {background-color: #FF3333;}
+
+	&.debug	{background-color: #C4C4C4;}
+
+	.text
+	{
+		margin: 13px auto 13px auto;
+		text-align: center;
+		width: 100%;
+		
+		font-size: 18px;
+		font-weight: 600;
+		word-break: break-all;
+	}
+	
+	img.cross_icon
+	{
+		margin: auto;
+		margin-left: 10px;
+
+		cursor: pointer;	
+	}
+
+	&.invisible
+	{
+		padding-top: 0;
+		padding-bottom: 0;
+
+		min-height: 0px;
+		height: 48px;
+
+		animation: removed-item-animation 0.25s linear forwards;
+	}
+}
+
+@keyframes removed-item-animation
+{
+    0% {
+    	height: 48px;
+	}
+
+	100% {
+		height: 0px;
+	}
+}
+
+.hidden { display: none; }

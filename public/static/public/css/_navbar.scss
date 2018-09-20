@@ -22,5 +22,17 @@ nav
 
 .logged_navbar
 {
+	display: flex;
+  	align-items: center;
+	justify-content: space-between;
 
+	.left
+	{
+		margin-left: 20px;
+	}
+
+	.right
+	{
+		margin-right: 20px;
+	}
 }

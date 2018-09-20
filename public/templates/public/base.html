@@ -45,7 +45,22 @@
 		{% else %}
 		{% include "public/navbar/visitor_navbar.html" %}
 		{% endif %}
-
+		{% if messages %}
+		{% for message in messages %}
+		<div class="message_panel{% if message.tags %} {{ message.tags }}{% endif %}">
+			<div class="text">{% autoescape off %}{{ message }}{% endautoescape %}</div>
+			<img class="cross_icon" src="{% static 'public/svg/cross_white.svg' %}" alt="Cross" title="Close"></img>
+		</div>
+		{% endfor %}
+		{% endif %}
+		<script>
+		$(".message_panel img.cross_icon").click(function(e) {
+			console.log("lol");
+			var panel = $(e.target).parent(".message_panel");
+			panel.addClass("invisible");
+			setTimeout(function() {panel.addClass("hidden");}, 200);
+		});
+		</script>
 		{% block content %}{% endblock %}
 	</body>
 </html>

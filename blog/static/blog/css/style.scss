@@ -151,9 +151,16 @@
 
 				width: 80%;
 
-				.username
+				.account_information
 				{
-					font-weight: bold;
+					display: flex;
+
+					.name
+					{
+						font-weight: bold;
+						margin-right: 5px;
+					}
+					.username{color: grey;}
 				}
 
 				.post
@@ -170,6 +177,7 @@
 					{
 						margin-right: 10%;
 						cursor: pointer;
+						color: grey;
 
 						.icon_like:before
 						{
@@ -183,7 +191,6 @@
 						{
 							font-family: FontAwesome;
 							content: "\f08a   ";
-							color: grey;	
 						}
 
 						&:hover
@@ -192,7 +199,6 @@
 							{
 								font-family: FontAwesome;
 								content: "\f08a   ";
-								color: grey;
 							}
 
 							.icon_not_like:before

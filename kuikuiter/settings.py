@@ -139,3 +139,5 @@ STATICFILES_FINDERS = (
 
     'compressor.finders.CompressorFinder',
 )
+
+AUTH_USER_MODEL = 'connection.User'

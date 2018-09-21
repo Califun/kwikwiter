@@ -24,8 +24,6 @@
 <div class="home">
 	<div class="left">
 		<div class="profile_block">
-			<div class="top_background"></div>
-			<div class="bottom_background"></div>
 			<div class="profile">
 				<div class="account">
 					<div class="user-logo">
@@ -39,7 +37,7 @@
 				<div class="stats">
 					<div class="stats_col">
 						<div class="stats_name">Tweets</div>
-						<div class="stats_value">42</div>
+						<div class="stats_value" id="tweet_counter">{{ request.user.tweet_counter }}</div>
 					</div>
 
 					<div class="stats_col">
@@ -73,14 +71,17 @@
 				{{ user_initals }}
 			</div>
 			<div class="block_text">
-				<div class="username">{{ post.user.username }}</div>
+				<div class="account_information">
+					<div class="name">{{ post.user.first_name }} {{ post.user.last_name }}</div>
+					<div class="username">{{ post.user.username }}</div>
+				</div>
 				<div class="post">{{ post.text }}</div>
 				<div class="actions">
 					<div data-href="{% url 'blog:like_post' post_id=post.pk %}" class="like">
 						{% if post in likes %}
-						<div class="icon_like" alt="Like">40</div>
+						<div class="icon_like" alt="Like">{{ post.like_counter }}</div>
 						{% else %}
-						<div class="icon_not_like" alt="Unlike">40</div>
+						<div class="icon_not_like" alt="Unlike">{{ post.like_counter }}</div>
 						{% endif %}
 					</div>
 					<div data-href="" class="icon_comment"><i class="fa fa-comment-o" alt="Show comments"></i></div>

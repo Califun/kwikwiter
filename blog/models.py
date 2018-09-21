@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+
+from connection.models import User
 
 
 class Post(models.Model):
@@ -7,3 +8,4 @@ class Post(models.Model):
 	user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 	text = models.CharField(default="", max_length=1024)
 	likes = models.ManyToManyField(User, related_name="posts_like")
+	like_counter = models.PositiveIntegerField(default=0)

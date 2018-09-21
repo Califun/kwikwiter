@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST, require_GET
 from django.http import JsonResponse
+from django.db import IntegrityError, transaction
+from django.db.models import F
 
 
 from .models import Post
@@ -21,14 +23,18 @@ def home(request):
 @require_POST
 def add_post(request):
 	try:
-		post = Post()
-		post.text = request.POST.get('add_post').strip()
-		post.user = request.user
-		post.save()
-	except Exception:
+		with transaction.atomic():
+			post = Post()
+			post.text = request.POST.get('add_post').strip()
+			post.user = request.user
+			post.save()
+			request.user.tweet_counter = F('tweet_counter') + 1
+			request.user.save()
+			request.user.refresh_from_db()
+	except IntegrityError:
 		return json_error_handler("cant-save")
-
-	return JsonResponse({"success": True, "post_id": post.pk})
+	return JsonResponse(
+		{"success": True, "post_id": post.pk, "tweet_counter": request.user.tweet_counter})
 
 
 @login_required
@@ -39,19 +45,23 @@ def like_post(request, post_id):
 	except Exception:
 		return json_error_handler("cant-found")
 	try:
-		try:
-			like = post.likes.get(pk=request.user.pk)
-		except Exception:
-			like = None
-
-		if like:
-			post.likes.remove(like)
-			result = True
-		else:
-			post.likes.add(request.user)
-			post.save()
-			result = False
-
-	except Exception:
+		with transaction.atomic():
+			try:
+				like = post.likes.get(pk=request.user.pk)
+			except Exception:
+				like = None
+			if like:
+				post.likes.remove(like)
+				post.like_counter = F('like_counter') - 1
+				post.save()
+				result = True
+			else:
+				post.likes.add(request.user)
+				post.like_counter = F('like_counter') + 1
+				post.save()
+				result = False
+			post.refresh_from_db()
+	except IntegrityError:
 		return json_error_handler("cant-save")
-	return JsonResponse({"success": True, "like": result})
+
+	return JsonResponse({"success": True, "like": result, "like_counter": post.like_counter})

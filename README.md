@@ -19,7 +19,7 @@ Add features, fix errors and bugs, do your best to improve the website in the sh
 
 * Fork the repository somewhere
 * Follow the instruction to launch the project
-* Do your work
+* Do your best
 * Push your work and send us a pull request whenever you feel ready
 
 

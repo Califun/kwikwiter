@@ -40,7 +40,9 @@ Add features, fix errors and bugs, do your best to improve the website in the sh
 
 ## Useful informations
 
-Linux user ~~(Are you a real programmer if you are not on linux tho...)~~
+Linux user:
+
+~~(Are you a real programmer if you are not on linux tho...)~~
 
 ##### Install Docker:
 * sudo apt install docker.io

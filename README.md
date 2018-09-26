@@ -1,7 +1,7 @@
 # Califun technical test: Kwikwiter
 
 We just received a very important communication at Califun HQ.
-The sender code name is __S.O.B.R.I.N.H.O.__, remind of Califun lead engineer. Seems like he is trying to warn you about a danger...
+The sender code name is __S.O.B.R.I.N.H.O.__... it remind me of Califun lead engineer. Seems like he is trying to warn you about a danger...
 
 > **_Schhhttt_** If anybody can hear me, they k... **_Ssshht_**  ...they know! They found out about the secret project! **_Sschhhhttt_** We should have know better... **_Schht_** ...creating the new twitter... **_Schht_** ...we should have known it could be dangerous. They all disappeared... **ALL!** ... I haven't been able to... **_Ssssscchhhhttt_** ...contact agent __K.O.U.T.A.T.A.H__, I don't know if he was able to esca... **_Sshchhhtttchhtt_** HELP **_Sshctt_** US **_Schtt_** ...finish the project before it's too l... **_Schchhththttt_** ...two hours... **_END OF COMMUNICATION_**
 
@@ -59,3 +59,10 @@ Linux user ~~(Are you a real programmer if you are not on linux tho...)~~:
 ##### User informations:
 * Email: johnsnow@kuikuiter.com
 * Mot de passe: john1234
+
+
+## Good luck and have fun!
+Remember, you are now a top secret agent for the Califun team. We trust you to keep the secret!
+![alt text](https://media.giphy.com/media/NdKVEei95yvIY/giphy.gif "THIS IS A SECRET")
+
+*This message will self-destruct in 30 seconds.*

@@ -9,6 +9,7 @@ urlpatterns = [
 	# url(r'^public/', include('public.urls')),
 	# url(r'^blog/', include('blog.urls')),
 	url(r'^connection/', include('connection.urls')),
+	url(r'^blog/', include('blog.urls')),
 	url(r'^$', connection.landing, name='landing'),
 
 	url(

@@ -16,11 +16,13 @@
 {% block content %}
 
 	<div class="login_page">
-		<form class="login_form">
-			<div class="title">CONNEXION</div>
-			Email: <input type="text" />
-			Mdp: <input type="password" />
-			<input type="submit" />
+		<form class="login_form" action="{% url 'connection:log_in' %}" method="post">
+			{% csrf_token %}
+			<div class="title">Connexion</div>
+			<input type="text" name="username" class="text_input username" placeholder="Email" />
+			<input type="password" name="password" class="text_input password" placeholder="Password" />
+			<input type="submit" value="Log in" class="primary_button login_button" />
+			<input type="button" value="Sign up" class="secondary_button signin_button" />
 		</form>
 	</div>
 

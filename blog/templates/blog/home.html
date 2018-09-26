@@ -1,0 +1,98 @@
+{% extends "public/base.html" %}
+
+{% load staticfiles %}
+{% load get_initials %}
+
+
+{% block title %}Kuikuiter - Home{% endblock %}
+
+{% block header_css %}
+<link rel="stylesheet" type="text/x-scss" href="{% static 'blog/css/style.scss' %}" />
+{% endblock %}
+
+{% block header_js %}
+<script type="text/javascript" src="{% static 'blog/js/home.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{% getinitials request.user as user_initals %}
+<script>
+	window.user_initials = "{{ user_initals }}";
+	window.username = "{{ request.user.username }}";
+	window.first_name = "{{ request.user.first_name }}";
+	window.last_name = "{{ request.user.last_name }}";
+	window.like_url = "{% url 'blog:like_post' %}";
+</script>
+<div class="home">
+	<div class="left">
+		<div class="profile_block">
+			<div class="profile">
+				<div class="account">
+					<div class="user_logo">
+						{{ user_initals }}
+					</div>
+					<div class="account_information">
+						<div class="name">John Snow</div>
+						<div class="username">johnsnow@kuikuiter.com</div>
+					</div>
+				</div>
+				<div class="stats">
+					<div class="stats_col">
+						<div class="stats_name">Tweets</div>
+						<div class="stats_value" id="tweet_counter">{{ request.user.tweet_counter }}</div>
+					</div>
+
+					<div class="stats_col">
+						<div class="stats_name">Likes</div>
+						<div class="stats_value">42</div>
+					</div>
+
+					<div class="stats_col">
+						<div class="stats_name">Comments</div>
+						<div class="stats_value">42</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="middle">
+		<div class="add_post">
+			<div class="user_logo">
+				{{ user_initals }}
+			</div>
+			<form action="{% url 'blog:add_post' %}" method="post" class="add_post_form">
+				{% csrf_token %}
+				<textarea type="text" name="add_post" placeholder="Hey {{ request.user.first_name }}! What's happening?" class="textarea_input add_post_input" maxlength="1024" required></textarea>
+			</form>
+		</div>
+		{% for post in posts %}
+		{% getinitials post.user as user_initals %}
+		<div class="block_post">
+			<div class="user_logo">
+				{{ user_initals }}
+			</div>
+			<div class="block_text">
+				<div class="account_information">
+					<div class="name">{{ post.user.first_name }} {{ post.user.last_name }}</div>
+					<div class="username">{{ post.user.username }}</div>
+				</div>
+				<div class="post">{{ post.text }}</div>
+				<div class="actions">
+					<div data-href="{% url 'blog:like_post' post_id=post.pk %}" class="like">
+						{% if post in likes %}
+						<div class="icon_like" alt="Like">{{ post.like_counter }}</div>
+						{% else %}
+						<div class="icon_not_like" alt="Unlike">{{ post.like_counter }}</div>
+						{% endif %}
+					</div>
+					<div data-href="" class="icon_comment"><i class="fa fa-comment-o" alt="Show comments"></i></div>
+				</div>
+			</div>	
+		</div>
+		{% endfor %}
+	</div>
+	<div class="right"></div>
+</div>
+	
+{% endblock %}

@@ -1,13 +1,22 @@
+@import 'public/css/_variables';
+
 .login_page
 {
 	.login_form
 	{
+		display: flex;
+		flex-direction: column;
+
 		margin: 32px auto 0px auto;
 		border: 1px solid #e6ecf0;
+		padding: 20px;
 
-		height: 200px;
-		width: 200px;
+		width: 400px;
 
 		background-color: white;
+
+		.username {margin-bottom: $margin_form_inputs;}
+		.password {margin-bottom: $margin_form_button;}
+		.login_button {margin-bottom: $margin_form_inputs;}
 	}
 }

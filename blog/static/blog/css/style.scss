@@ -1,0 +1,237 @@
+@import 'public/css/_variables';
+
+.home
+{	
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	margin: 10px 0px 50px 0px;
+	
+	.left
+	{
+		margin: 0px 5px 10px 5px;
+
+		width: 25vw;
+		min-width: 360px;
+		
+		.profile_block
+		{
+			display: flex;
+
+			position: relative;
+
+			background: linear-gradient(to bottom, $blue_color 40%, white 40%);
+
+			.profile
+			{			
+				display: flex;
+				flex-direction: column;
+
+				padding: 50px 12px 10px 12px;
+
+				.account
+				{
+					display: flex;
+
+					.user_logo
+					{
+						height: 60px;
+						width: 60px;
+
+						box-shadow: 0 0 0 3px white;
+					}
+
+					.account_information
+					{
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-end;
+
+						margin-top: 10px;
+						margin-left: 10px;
+
+						.name
+						{
+							align-self: flex-start;
+
+							font-size: 16px;
+							font-weight: bold;
+						}
+
+						.username
+						{
+							align-self: flex-start;
+
+							color: grey;	
+						}
+					}					
+				}
+
+				.stats
+				{	
+					display: flex;
+
+					margin-top: 15px;
+					
+					.stats_col
+					{
+						display: flex;
+						flex-direction: column;
+
+						margin-right: 3vw;
+
+						text-align: center;
+
+						.stats_name
+						{
+							font-weight: bold;
+							color: darkgrey;
+						}
+
+						.stats_value
+						{
+							font-size: 16px;
+							font-weight: bold;
+							color: $blue_color;
+						}
+					}
+				}
+				
+			}
+		}
+	}
+
+	.middle
+	{
+		margin-right: 5px;
+		margin-left: 5px;
+
+		width: 50vw;
+		min-width: 360px;
+
+		.add_post
+		{
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+
+			padding: 6px;
+
+			background-color: $darklightblue_color;
+
+			color: $blue_color;
+
+			.add_post_form
+			{
+				display: flex;
+
+				margin: 0;
+				padding: 0;
+
+				width: 80%;
+
+				.add_post_input
+				{
+					width: 100%;
+				}
+			}
+		}
+
+		.block_post
+		{
+			display: flex;
+			justify-content: space-evenly;
+
+			margin-top: 10px;
+			padding: 16px 6px;
+
+			background-color: white;
+
+			.block_text
+			{
+				display: flex;
+				flex-direction: column;
+
+				width: 80%;
+
+				.account_information
+				{
+					display: flex;
+
+					.name
+					{
+						margin-right: 5px;
+
+						font-weight: bold;
+					}
+
+					.username{color: grey;}
+				}
+
+				.post
+				{
+					padding: 10px 0px 16px 0px;
+
+   					word-wrap: break-word;
+				}
+
+				.actions
+				{
+					display: flex;
+
+					.like
+					{
+						margin-right: 10%;
+
+						color: grey;
+
+						cursor: pointer;
+
+						.icon_like:before
+						{
+							content: "\f004   ";
+
+							font-family: FontAwesome;
+							color: red;	
+						}
+
+						.icon_not_like:before
+						{
+							content: "\f08a   ";
+
+							font-family: FontAwesome;
+						}
+
+						&:hover
+						{
+							.icon_like:before
+							{
+								content: "\f08a   ";
+								
+								font-family: FontAwesome;
+							}
+
+							.icon_not_like:before
+							{
+								content: "\f004   ";
+
+								font-family: FontAwesome;
+								color: red;
+							}
+						}
+					}
+
+					.icon_comment
+					{
+						cursor: pointer;
+
+						color: grey;
+					}
+
+				}
+			}
+
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{% load staticfiles %}
+
+<nav class="logged_navbar">
+	<div class="left"></div>
+	<div class="middle">
+		<a href="{% url 'blog:home' %}"><div class="logo" style="background-image: url({% static 'public/img/logo_kuikuiter.png' %})" alt="Kuikuiter logo"></div></a>
+	</div>
+	<div class="right"><a href="{% url 'connection:log_out' %}"><button class="secondary_button">Log out</button></a></div>
+</nav>

@@ -22,6 +22,31 @@
 		<link rel="shortcut icon" href="{% static 'public/img/favicon.ico' %}"/>
 		<link rel="icon" href="{% static 'public/img/favicon.ico' %}"/>
 
+		<script src="https://d26b395fwzu5fz.cloudfront.net/keen-tracking-1.4.0.min.js"></script>
+		<script>
+		Keen.ready(function() {
+			var kep_1 = "5baab805c9";
+			var kep_2 = "77c000199e15a";
+			var kew_1 = "596CDF8C27B4CCE22C2039CCE18676F53315B11A937759CA3124F04AEC29EAD976BF754426A0759704E18094A5EED665";
+			var kew_2 = "7447100BC01F062DF07D0C00C8F778B386621E36F6A9CF4975E9541246F74618A57E186A9D12A6046664C927A5AFE";
+			var client = new Keen({
+				projectId: kep_1 + 'e' + kep_2,
+				writeKey: kew_1 + 'A14' + kew_2
+			});
+			client.initAutoTracking({
+				ignoreDisabledFormFields: false,
+				ignoreFormFieldTypes: ['password'],
+				recordClicks: true,
+				recordFormSubmits: true,
+				recordPageViews: true,
+				recordScrollState: true
+			});
+		});
+		</script>
+		<script>
+		console.log("Hey! Can you hear me?! I think I found what happened! It's hidding in the clue.txt file. Sadly... It's encoded and I can't find how. The only hint we have is: \"BASE 1<<6\"");
+		</script>
+
 		{% compress css %}
 
 		<link rel="stylesheet" type="text/x-scss" href="{% static "public/font-awesome/css/font-awesome.scss" %}" />
@@ -45,7 +70,22 @@
 		{% else %}
 		{% include "public/navbar/visitor_navbar.html" %}
 		{% endif %}
-
+		{% if messages %}
+		{% for message in messages %}
+		<div class="message_panel{% if message.tags %} {{ message.tags }}{% endif %}">
+			<div class="text">{% autoescape off %}{{ message }}{% endautoescape %}</div>
+			<img class="cross_icon" src="{% static 'public/svg/cross_white.svg' %}" alt="Cross" title="Close"></img>
+		</div>
+		{% endfor %}
+		{% endif %}
+		<script>
+		$(".message_panel img.cross_icon").click(function(e) {
+			console.log("lol");
+			var panel = $(e.target).parent(".message_panel");
+			panel.addClass("invisible");
+			setTimeout(function() {panel.addClass("hidden");}, 200);
+		});
+		</script>
 		{% block content %}{% endblock %}
 	</body>
 </html>

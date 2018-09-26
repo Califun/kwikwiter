@@ -1,0 +1,97 @@
+.button
+{
+    position: relative;
+
+	border-radius: 100px;
+	border: none;
+    box-shadow: none;
+    padding: 6px 16px;
+
+    line-height: 20px;
+ 
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:focus {outline: none;}
+}
+
+.primary_button
+{
+	@extend .button;
+
+	background-color: $blue_color;
+
+	color: white;
+
+	&:hover {background-color: $dark_blue_color;}
+}
+
+.secondary_button
+{
+	@extend .button;
+
+	border: 1px solid $blue_color;
+
+	background-color: white;
+
+	color: $blue_color;
+
+	&:hover {background-color: $lightblue_color;}
+}
+
+.text_input
+{
+	padding: 8px 12px;
+
+	background-color: white;
+    border: 1px solid #e6ecf0;
+	border-radius: 3px;
+
+	font-size: 16px;
+    line-height: 22px;
+
+    &:focus
+    {
+    	border-color: $blue_color;
+    	outline: none;
+    }
+}
+
+.textarea_input
+{
+	@extend .text_input;
+
+   	resize: none;
+	border-radius: 10px;
+}
+
+.title
+{
+	margin-bottom: 24px;
+
+	font-size: 24px;
+}
+
+.user_logo
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border: 1px solid $blue_color;
+	border-radius: 50%;
+	padding: 1px;
+
+	height: 50px;
+	width: 50px;
+
+	background-color: white;
+
+	font-size: 16px;
+	font-weight: 900;
+	color: $blue_color;
+}

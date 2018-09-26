@@ -32,7 +32,7 @@ KEW_2 = "665A147447100BC01F062DF07D0C00C8F778B386621E36F6A9CF4975E9541246F74618A
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0"]
 
 
 # Application definition

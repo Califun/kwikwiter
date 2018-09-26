@@ -58,7 +58,7 @@ Linux user ~~(Are you a real programmer if you are not on linux tho...)~~
 * sudo docker-compose run web python manage.py migrate
 
 ##### User informations:
-* Email: johnsnow@kuikuiter.com
+* Email: johnsnow@kwikwiter.com
 * Mot de passe: john1234
 
 

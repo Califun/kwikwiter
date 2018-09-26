@@ -26,7 +26,7 @@ Add features, fix errors and bugs, do your best to improve the website in the sh
 ## Details
 
 * You have here the base of a full django project, similar to what we have on Califun
-* Python, Javascript, Django HTML template language and SCSS will be your best weapons here
+* Python, Javascript, Django HTML template language and SCSS will be your best weapons
 * You are free to add, modify, fix whatever you want to improve the project. If you need some inspiration, you can for exemple:
   * Create a subscribe feature
   * Add a comments feature on blog post (and display the number of total comments for a user as a bonus point)
@@ -40,7 +40,7 @@ Add features, fix errors and bugs, do your best to improve the website in the sh
 
 ## Useful informations
 
-Linux user ~~(Are you a real programmer if you are not on linux tho...)~~:
+Linux user ~~(Are you a real programmer if you are not on linux tho...)~~
 
 ##### Install Docker:
 * sudo apt install docker.io
@@ -64,6 +64,7 @@ Linux user ~~(Are you a real programmer if you are not on linux tho...)~~:
 
 ## Good luck and have fun!
 Remember, you are now a top secret agent for the Califun team. We trust you to keep the secret!
+
 ![alt text](https://media.giphy.com/media/NdKVEei95yvIY/giphy.gif "THIS IS A SECRET")
 
 *This message will self-destruct in 30 seconds.*

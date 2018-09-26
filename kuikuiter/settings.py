@@ -24,11 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '6=yk+9bph8-vda*!3$(f7=74+w7c^74g85i64_ro!mobqb60on'
+KEP_1 = "5baab805c9"
+KEP_2 = "77c000199e15a"
+KEW_1 = "596CDF8C27B4CCE22C2039CCE18676F53315B11A937759CA3124F04AEC29EAD976BF754426A0759704E18094A5"
+KEW_2 = "665A147447100BC01F062DF07D0C00C8F778B386621E36F6A9CF4975E9541246F74618A57E186A9D12A6046664C927A5AFE"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -141,3 +145,6 @@ STATICFILES_FINDERS = (
 )
 
 AUTH_USER_MODEL = 'connection.User'
+
+KEEN_PROJECT_ID = KEP_1 + "e" + KEP_2
+KEEN_WRITE_KEY = KEW_1 + "EED" + KEW_2

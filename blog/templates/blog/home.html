@@ -19,6 +19,8 @@
 <script>
 	window.user_initials = "{{ user_initals }}";
 	window.username = "{{ request.user.username }}";
+	window.first_name = "{{ request.user.first_name }}";
+	window.last_name = "{{ request.user.last_name }}";
 	window.like_url = "{% url 'blog:like_post' %}";
 </script>
 <div class="home">
@@ -26,7 +28,7 @@
 		<div class="profile_block">
 			<div class="profile">
 				<div class="account">
-					<div class="user-logo">
+					<div class="user_logo">
 						{{ user_initals }}
 					</div>
 					<div class="account_information">
@@ -42,12 +44,12 @@
 
 					<div class="stats_col">
 						<div class="stats_name">Likes</div>
-						<div class="stats_value">150</div>
+						<div class="stats_value">42</div>
 					</div>
 
 					<div class="stats_col">
 						<div class="stats_name">Comments</div>
-						<div class="stats_value">15</div>
+						<div class="stats_value">42</div>
 					</div>
 				</div>
 			</div>
@@ -56,7 +58,7 @@
 	</div>
 	<div class="middle">
 		<div class="add_post">
-			<div class="user-logo">
+			<div class="user_logo">
 				{{ user_initals }}
 			</div>
 			<form action="{% url 'blog:add_post' %}" method="post" class="add_post_form">
@@ -67,7 +69,7 @@
 		{% for post in posts %}
 		{% getinitials post.user as user_initals %}
 		<div class="block_post">
-			<div class="user-logo">
+			<div class="user_logo">
 				{{ user_initals }}
 			</div>
 			<div class="block_text">

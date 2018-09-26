@@ -16,6 +16,7 @@ from public.utils import json_error_handler
 def home(request):
 	posts = Post.objects.all().order_by("-created_at")
 	likes = request.user.posts_like.all()
+
 	return render(request, "blog/home.html", {"posts": posts, "likes": likes})
 
 
@@ -33,6 +34,7 @@ def add_post(request):
 			request.user.refresh_from_db()
 	except IntegrityError:
 		return json_error_handler("cant-save")
+
 	return JsonResponse(
 		{"success": True, "post_id": post.pk, "tweet_counter": request.user.tweet_counter})
 

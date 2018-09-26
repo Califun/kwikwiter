@@ -4,23 +4,22 @@
 {	
 	display: flex;
 	justify-content: center;
-	
 	flex-wrap: wrap;
 
-	margin-top: 10px;
+	margin: 10px 0px 50px 0px;
 	
 	.left
 	{
+		margin: 0px 5px 10px 5px;
+
 		width: 25vw;
 		min-width: 360px;
-		margin-right: 5px;
-		margin-left: 5px;
-		margin-bottom: 10px;
 		
 		.profile_block
 		{
-			position: relative;
 			display: flex;
+
+			position: relative;
 
 			background: linear-gradient(to bottom, $blue_color 40%, white 40%);
 
@@ -35,13 +34,12 @@
 				{
 					display: flex;
 
-					.user-logo
+					.user_logo
 					{
-						height: 4vw;
-						width: 4vw;
-						min-height: 50px;
-						min-width: 50px;
-						box-shadow: 0 0 0 3px white;					
+						height: 60px;
+						width: 60px;
+
+						box-shadow: 0 0 0 3px white;
 					}
 
 					.account_information
@@ -49,7 +47,6 @@
 						display: flex;
 						flex-direction: column;
 						justify-content: flex-end;
-
 
 						margin-top: 10px;
 						margin-left: 10px;
@@ -65,6 +62,7 @@
 						.username
 						{
 							align-self: flex-start;
+
 							color: grey;	
 						}
 					}					
@@ -73,26 +71,29 @@
 				.stats
 				{	
 					display: flex;
+
 					margin-top: 15px;
 					
 					.stats_col
 					{
 						display: flex;
 						flex-direction: column;
+
 						margin-right: 3vw;
 
+						text-align: center;
 
 						.stats_name
 						{
-							color: darkgrey;
 							font-weight: bold;
+							color: darkgrey;
 						}
 
 						.stats_value
 						{
-							color: $blue_color;
 							font-size: 16px;
 							font-weight: bold;
+							color: $blue_color;
 						}
 					}
 				}
@@ -103,11 +104,12 @@
 
 	.middle
 	{
+		margin-right: 5px;
+		margin-left: 5px;
+
 		width: 50vw;
 		min-width: 360px;
 
-		margin-right: 5px;
-		margin-left: 5px;
 		.add_post
 		{
 			display: flex;
@@ -115,6 +117,7 @@
 			justify-content: space-evenly;
 
 			padding: 6px;
+
 			background-color: $darklightblue_color;
 
 			color: $blue_color;
@@ -123,10 +126,10 @@
 			{
 				display: flex;
 
-				width: 80%;
-
 				margin: 0;
 				padding: 0;
+
+				width: 80%;
 
 				.add_post_input
 				{
@@ -141,7 +144,8 @@
 			justify-content: space-evenly;
 
 			margin-top: 10px;
-			padding: 6px;
+			padding: 16px 6px;
+
 			background-color: white;
 
 			.block_text
@@ -157,15 +161,18 @@
 
 					.name
 					{
-						font-weight: bold;
 						margin-right: 5px;
+
+						font-weight: bold;
 					}
+
 					.username{color: grey;}
 				}
 
 				.post
 				{
-					padding-bottom: 10px; 
+					padding: 10px 0px 16px 0px;
+
    					word-wrap: break-word;
 				}
 
@@ -176,35 +183,40 @@
 					.like
 					{
 						margin-right: 10%;
-						cursor: pointer;
+
 						color: grey;
+
+						cursor: pointer;
 
 						.icon_like:before
 						{
+							content: "\f004   ";
 
 							font-family: FontAwesome;
-							content: "\f004   ";
 							color: red;	
 						}
 
 						.icon_not_like:before
 						{
-							font-family: FontAwesome;
 							content: "\f08a   ";
+
+							font-family: FontAwesome;
 						}
 
 						&:hover
 						{
 							.icon_like:before
 							{
-								font-family: FontAwesome;
 								content: "\f08a   ";
+								
+								font-family: FontAwesome;
 							}
 
 							.icon_not_like:before
 							{
-								font-family: FontAwesome;
 								content: "\f004   ";
+
+								font-family: FontAwesome;
 								color: red;
 							}
 						}
@@ -213,6 +225,7 @@
 					.icon_comment
 					{
 						cursor: pointer;
+
 						color: grey;
 					}
 

@@ -26,9 +26,13 @@ $( document ).ready(function() {
 			if (data["success"])
 			{
 				div = '<div class="block_post">';
-				div += '	<div class="user-logo">' + window.user_initials + '</div>';
+				div += '	<div class="user_logo">' + window.user_initials + '</div>';
 				div += '	<div class="block_text">';
-				div += '		<div class="username">' + window.username + '</div>';
+				div += '		<div class="account_information">';
+				div += '			<div class="name">' + window.first_name + " " + window.last_name + '</div>';
+				div += '			<div class="username">' + window.username + '</div>';
+				div += '		</div>';
+
 				div += '		<div class="post">' + add_post_input.val() + '</div>';
 				div += '		<div class="actions">';
 				div += '			<div data-href="'+ window.like_url + data.post_id + '" class="like"><div class="icon_not_like" alt="Like">0</div></div>';

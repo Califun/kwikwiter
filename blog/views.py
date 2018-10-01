@@ -39,6 +39,23 @@ def add_post(request):
 		{"success": True, "post_id": post.pk, "tweet_counter": request.user.tweet_counter})
 
 
+def delete_post(request, post_id):
+    try:
+        post = Post.objects.get(id=post_id)
+    except Exception:
+        return json_error_handler("cant-found")
+    post.delete()
+    request.user.tweet_counter = F('tweet_counter') - 1
+    request.user.save()
+    request.user.refresh_from_db()
+
+    posts = Post.objects.all().order_by("-created_at")
+    likes = request.user.posts_like.all()
+
+    return render(request, "blog/home.html", {"posts": posts, "likes": likes})
+    
+
+
 @login_required
 @require_GET
 def like_post(request, post_id):

@@ -230,9 +230,21 @@
 					.icon_comment
 					{
 						cursor: pointer;
-
 						color: grey;
 					}
+					
+					.delete{
+        					padding-left:200px;
+        					font-color:grey;
+					}
+					
+					
+					a{
+        					text-decoration: none;
+					}
+					a:visited{
+            				color: grey;
+    					}
 
 				}
 			}

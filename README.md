@@ -8,6 +8,8 @@ The sender code name is __S.O.B.R.I.N.H.O.__... it reminds me of Califun lead en
 
 I don't know what's going on, but one thing is sure: the future of the company is in __your__ hands... or under your fingers I would say.
 
+**_What have you done guys for making Laure this upset? ... :-/_**
+
 
 ## Can you finish kwikwiter in time?
 

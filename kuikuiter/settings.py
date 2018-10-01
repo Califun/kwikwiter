@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'public',
     'blog',
     'connection',
+    'signup',
 
     'compressor',
 

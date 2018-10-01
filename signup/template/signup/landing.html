@@ -1,0 +1,31 @@
+{% extends "public/base.html" %}
+
+{% load staticfiles %}
+
+
+{% block title %}Kuikuiter - Sign Up{% endblock %}
+
+{% block header_css %}
+<link rel="stylesheet" type="text/x-scss" href="{% static 'connection/css/style.scss' %}" />
+{% endblock %}
+
+{% block header_js %}
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="login_page">
+	
+		<form class="login_form" action="{% url 'connection:log_in' %}" method="post">
+			{% csrf_token %}
+			<div class="title">Sign Up</div>
+			
+			{{ form.as_p }}
+			
+			<input type="submit" value="Sign up" class="primary_button signin_button" />
+		</form>
+		
+	</div>
+
+{% endblock %}

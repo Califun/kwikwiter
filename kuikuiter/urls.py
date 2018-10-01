@@ -7,7 +7,7 @@ from connection import views as connection
 handler404 = 'public.views.handler404'
 urlpatterns = [
 	# url(r'^public/', include('public.urls')),
-	# url(r'^blog/', include('blog.urls')),
+    url(r'^signup/', include('signup.urls')),
 	url(r'^connection/', include('connection.urls')),
 	url(r'^blog/', include('blog.urls')),
 	url(r'^$', connection.landing, name='landing'),

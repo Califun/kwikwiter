@@ -8,7 +8,7 @@ from django.db import IntegrityError, transaction
 from django.db.models import F
 
 
-from .models import Post
+from .models import Post, Comment
 from public.utils import json_error_handler
 
 

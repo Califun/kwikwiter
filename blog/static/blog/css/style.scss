@@ -147,7 +147,12 @@
 			padding: 16px 6px;
 
 			background-color: white;
-
+			
+			.date{
+				color: grey;
+				font-size: 12px;
+				margin-bottom: 5px;
+			}
 			.block_text
 			{
 				display: flex;

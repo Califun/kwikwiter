@@ -32,8 +32,8 @@
 						{{ user_initals }}
 					</div>
 					<div class="account_information">
-						<div class="name">John Snow</div>
-						<div class="username">johnsnow@kuikuiter.com</div>
+						<div class="name">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+						<div class="username">{{ request.user.username }}</div>
 					</div>
 				</div>
 				<div class="stats">
@@ -78,6 +78,7 @@
 					<div class="username">{{ post.user.username }}</div>
 				</div>
 				<div class="post">{{ post.text }}</div>
+				<div class="date">{{ post.created_at }}</div>
 				<div class="actions">
 					<div data-href="{% url 'blog:like_post' post_id=post.pk %}" class="like">
 						{% if post in likes %}

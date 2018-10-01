@@ -43,6 +43,7 @@ Add features, fix errors and bugs, do your best to improve the website in the sh
 Linux user:
 
 ~~(Are you a real programmer if you are not on linux tho...)~~
+~~(I'm not using it, oups. Let's prove you I'm really a programmer then ;) )~~
 
 ##### Install Docker:
 * sudo apt install docker.io
@@ -56,7 +57,7 @@ Linux user:
 * sudo docker-compose run web python manage.py shell
 
 ##### Run migration:
-* sudo docker-compose run web python manage.py makemigrations 
+* sudo docker-compose run web python manage.py makemigrations
 * sudo docker-compose run web python manage.py migrate
 
 ##### User informations:

@@ -4,25 +4,20 @@
 {% load get_initials %}
 
 
-{% block title %}Kuikuiter - Home{% endblock %}
+{% block title %}Kuikuiter - Comments of Post n° {% endblock %}
 
 {% block header_css %}
 <link rel="stylesheet" type="text/x-scss" href="{% static 'blog/css/style.scss' %}" />
 {% endblock %}
 
 {% block header_js %}
-<script type="text/javascript" src="{% static 'blog/js/home.js' %}"></script>
+<script type="text/javascript" src="{% static 'blog/js/post.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 {% getinitials request.user as user_initals %}
-<script>
-	window.user_initials = "{{ user_initals }}";
-	window.username = "{{ request.user.username }}";
-	window.first_name = "{{ request.user.first_name }}";
-	window.last_name = "{{ request.user.last_name }}";
-	window.like_url = "{% url 'blog:like_post' %}";
-</script>
+
+
 <div class="home">
 	<div class="left">
 		<div class="profile_block">
@@ -44,7 +39,7 @@
 
 					<div class="stats_col">
 						<div class="stats_name">Likes</div>
-						<div class="stats_value">{{ likes.count }}</div>
+						<div class="stats_value">{{ request.user.posts_like.all.count }}</div>
 					</div>
 
 					<div class="stats_col">
@@ -57,18 +52,7 @@
 		</div>
 	</div>
 	<div class="middle">
-		<div class="add_post">
-			<div class="user_logo">
-				{{ user_initals }}
-			</div>
-			<form action="{% url 'blog:add_post' %}" method="post" class="add_post_form">
-				{% csrf_token %}
-				<textarea type="text" name="add_post" placeholder="Hey {{ request.user.first_name }}! What's happening?" class="textarea_input add_post_input" maxlength="1024" required></textarea>
-			</form>
-		</div>
-		{% for post in posts %}
-		{% getinitials post.user as user_initals %}
-		<div class="block_post">
+        	<div class="block_post">
 			<div class="user_logo">
 				{{ user_initals }}
 			</div>
@@ -80,23 +64,44 @@
 				<div class="post">{{ post.text }}</div>
 				<div class="date">{{ post.created_at }}</div>
 				<div class="actions">
-					<div data-href="{% url 'blog:like_post' post_id=post.pk %}" class="like">
+                        <div data-href="{% url 'blog:like_post' post_id=post.pk %}" class="like">
 						{% if post in likes %}
 						<div class="icon_like" alt="Like">{{ post.like_counter }}</div>
 						{% else %}
 						<div class="icon_not_like" alt="Unlike">{{ post.like_counter }}</div>
 						{% endif %}
 					</div>
-					<div data-href="" class="icon_comment">
-					<a href="{% url 'blog:comments' post_id=post.pk %}" class="fa fa-comment-o" alt="Show comments"></a>
-					</div>
-				<div class="delete"><a href="{% url 'blog:delete_post' post_id=post.pk %}" alt="Delete">Delete</a></div>
 				</div>
 			</div>	
 		</div>
-		{% endfor %}
+		<div class="block_post">
+		{% for comment in post.comment_set.all %}
+			{% getinitials post.user as user_initals %}
+    			<div class="block_text">
+    				<div class="account_information">
+    					<div class="name">{{ comment.user.first_name }} {{ comment.user.last_name }}</div>
+    					<div class="username">{{ comment.user.username }}</div>
+    				</div>
+    				<div class="post">{{ comment.text }}</div>
+    				<div class="date">{{ comment.created_at }}</div>
+    				{% empty %}
+            		<p class="no_comments">No comments yet</p>
+            	{% endfor %}
+		</div>
+		<div class="add_comment">			
+			<div class="block_post">
+			<div class="user_logo">
+				{{ user_initals }}
+			</div>
+    			</div>
+            		
+    			<form action="{% url 'blog:add_comment' post_id=post.pk %}" method="post" class="add_comment_form">
+    				{% csrf_token %}
+    				<textarea type="text" name="add_comment" placeholder="What {{ request.user.first_name }}? Wanna say something?" 
+    				class="textarea_input add_comment_input" maxlength="1024" required></textarea>
+    			</form>
+		</div>
 	</div>
-	<div class="right"></div>
 </div>
-	
+
 {% endblock %}

@@ -84,3 +84,37 @@ def like_post(request, post_id):
 		return json_error_handler("cant-save")
 
 	return JsonResponse({"success": True, "like": result, "like_counter": post.like_counter})
+
+def comments(request, post_id):
+    try:
+        post = Post.objects.get(pk=post_id)
+    except Exception:
+        return json_error_handler("cant-found")
+    return render(request, "blog/post.html", {"post": post})
+
+@login_required
+@require_POST
+def add_comment(request, post_id):
+    
+    try:
+        post = Post.objects.get(pk=post_id)
+    except Exception:
+        return json_error_handler("cant-found")
+    
+    try:
+        with transaction.atomic():
+            comment = Comment()
+            comment.text = request.POST.get('add_comment').strip()
+            comment.user = request.user
+            comment.save()
+            comment.post.add(post)
+            request.user.comment_counter = F('comment_counter') + 1
+            request.user.save()
+            request.user.refresh_from_db()
+            
+    except IntegrityError:
+        return json_error_handler("cant-save")
+
+    return JsonResponse(
+            {"success": True, "comment_id": comment.pk, "comment_counter": request.user.comment_counter})
+
